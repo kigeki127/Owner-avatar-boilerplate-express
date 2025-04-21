@@ -20,13 +20,18 @@ let app = express();
 //  });
 //});
 
-app.get("/json", (req, res) => {
-	let message = "Hello json";
+app.get('/json',(req, res)=>{
+	var response = "Hello json";
+	console.log("aaa")
+	console.log(process.env.MESSAGE_STYLE === "uppercase")
 	if (process.env.MESSAGE_STYLE === "uppercase") {
-		message = message.toUpperCase();
+		response = "Hello json".toUpperCase();
+	} else {
+		response = "Hello json";
 	}
-	res.json({ message });
-});
+	res.json({"message": response})
+})
+
 
 
 
