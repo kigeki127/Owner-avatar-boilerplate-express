@@ -20,13 +20,13 @@ let app = express();
 //  });
 //});
 
-if (process.env.VAR_NAME === "allCaps") {
-  response = "Hello World".toUpperCase();
-} else {
-  response = "Hello World";
-};
-
-
+app.get("/json", (req, res) => {
+	let message = "Hello json";
+	if (process.env.MESSAGE_STYLE === "uppercase") {
+		message = message.toUpperCase();
+	}
+	res.json({ message });
+});
 
 
 
